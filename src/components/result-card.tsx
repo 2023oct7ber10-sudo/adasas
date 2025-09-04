@@ -10,7 +10,7 @@ interface ResultCardProps {
 }
 
 const getResultMessage = (grade: number) => {
-  if (grade >= 90) {
+  if (grade >= 85) {
     const messages = [
       "🎉 مبروك النجاح! ما شاء الله عليك، أحسنت وبارك الله فيك",
       "🌟 ممتاز! جعل الله القرآن شفيعًا لك يوم القيامة",
@@ -21,12 +21,12 @@ const getResultMessage = (grade: number) => {
     return messages[Math.floor(Math.random() * messages.length)]
   } else {
     const messages = [
-      "💪 لا تيأس، واصل المحاولة وستصل بإذن الله تعالى",
-      "🌱 جهد مبارك، والله مع الصابرين المجتهدين",
-      "📚 خطوة في الطريق الصحيح، استمر بالمراجعة والحفظ",
-      "⭐ أجرك محفوظ عند الله، واصل التدريب والمراجعة",
-      "🎯 لا تستسلم، فكل حرف بحسنة والحسنة بعشر أمثالها",
-      "🤲 ادع الله أن يعينك، وواصل الجهد والاجتهاد"
+      "💪 جهد مبارك، بارك الله فيك وفي سعيك لحفظ كتاب الله",
+      "🌱 أجرك محفوظ عند الله، فكل حرف بحسنة والحسنة بعشر أمثالها",
+      "📚 ما شاء الله، جهد طيب في خدمة القرآن الكريم",
+      "⭐ بارك الله في جهودك المباركة في حفظ كتاب الله",
+      "🎯 جعل الله القرآن شفيعًا لك، وبارك في سعيك المبارك",
+      "🤲 أحسنت، وفقك الله وبارك في جهودك الطيبة"
     ]
     return messages[Math.floor(Math.random() * messages.length)]
   }
@@ -40,13 +40,13 @@ const getGradeIcon = (grade: number) => {
 }
 
 const getGradeColor = (grade: number) => {
-  if (grade >= 90) return "success"
+  if (grade >= 85) return "success"
   if (grade >= 75) return "warning"
   return "secondary"
 }
 
 export function ResultCard({ name, grade, category }: ResultCardProps) {
-  const isSuccess = grade >= 90
+  const isSuccess = grade >= 85
   const Icon = getGradeIcon(grade)
   const gradeColor = getGradeColor(grade)
   const message = getResultMessage(grade)
@@ -86,17 +86,6 @@ export function ResultCard({ name, grade, category }: ResultCardProps) {
           >
             {grade} درجة
           </Badge>
-          <Badge 
-            variant="outline"
-            className={cn(
-              "text-lg font-bold px-4 py-2",
-              isSuccess 
-                ? "bg-green-100 text-green-800 border-green-300" 
-                : "bg-red-100 text-red-800 border-red-300"
-            )}
-          >
-            {isSuccess ? "ناجح ✅" : "راسب ❌"}
-          </Badge>
           {category && (
             <Badge variant="outline" className="text-sm">
               فئة {category}
@@ -118,16 +107,47 @@ export function ResultCard({ name, grade, category }: ResultCardProps) {
         
         {isSuccess && (
           <div className="mt-4 p-3 rounded-lg bg-gradient-success/10 border border-success/20">
-            <p className="text-success font-bold text-base text-center">
-              🎊 ألف مبروك النجاح! 🎊
+            <div className="text-success font-bold text-base text-center space-y-3">
+              <p className="text-lg">🎊 ألف مبروك النجاح! 🎊</p>
+              
+              <div className="bg-white/80 p-4 rounded-lg border border-success/30 text-success-foreground">
+                <h3 className="font-bold text-lg mb-3 text-primary">🕌 دعوة كريمة</h3>
+                <p className="text-sm leading-relaxed text-primary">
+                  تتشرف إدارة المسجد الشرقي بدعوتكم<br/>
+                  لحضور حفل تكريم الفائزين في مسابقة المولد النبوي الشريف
+                </p>
+                
+                <div className="mt-4 space-y-2 text-sm text-primary">
+                  <div className="flex justify-between">
+                    <span className="font-semibold">التاريخ الهجري:</span>
+                    <span>الخميس، 19 ربيع الأول 1447هـ</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-semibold">التاريخ الميلادي:</span>
+                    <span>الخميس، ١١ سبتمبر ٢٠٢٥ م</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="font-semibold">الموعد:</span>
+                    <span>بعد صلاة العشاء مباشرة</span>
+                  </div>
+                  <div className="text-center mt-3 font-semibold text-accent">
+                    📍 المسجد الشرقي - دار المناسبات الشرقية، دمليج
+                  </div>
+                </div>
+              </div>
+            </div>
             </p>
           </div>
         )}
         
         {!isSuccess && (
-          <div className="mt-4 p-3 rounded-lg bg-orange-50 border border-orange-200">
-            <p className="text-orange-700 font-semibold text-sm text-center">
-              💪 لا تيأس، المحاولة القادمة ستكون أفضل بإذن الله
+          <div className="mt-4 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200">
+            <p className="text-blue-800 font-semibold text-base text-center mb-3">
+              🌟 بارك الله في جهودك المباركة
+            </p>
+            <p className="text-blue-700 text-sm text-center leading-relaxed">
+              جعل الله القرآن شفيعًا لك، وبارك في سعيك الطيب في خدمة كتاب الله العزيز.<br/>
+              أجرك محفوظ عند الله، فكل حرف بحسنة والحسنة بعشر أمثالها.
             </p>
           </div>
         )}

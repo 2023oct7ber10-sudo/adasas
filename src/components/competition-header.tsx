@@ -45,7 +45,7 @@ export function CompetitionHeader() {
         {/* Success criteria */}
         <div className="mt-6 p-4 rounded-xl bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 max-w-lg mx-auto">
           <p className="text-green-800 font-semibold text-center">
-            🎯 معايير النجاح: 90 درجة فما فوق
+            🎯 معايير النجاح: 85 درجة فما فوق
           </p>
         </div>
       </div>
