@@ -147,7 +147,6 @@ export function ResultCard({ name, grade, category }: ResultCardProps) {
             </p>
             <p className="text-blue-700 text-sm text-center leading-relaxed">
               جعل الله القرآن شفيعًا لك، وبارك في سعيك الطيب في خدمة كتاب الله العزيز.<br/>
-              أجرك محفوظ عند الله، فكل حرف بحسنة والحسنة بعشر أمثالها.
             </p>
           </div>
         )}
